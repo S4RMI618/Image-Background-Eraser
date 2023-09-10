@@ -1,11 +1,8 @@
 import os
 from datetime import datetime
 from rembg import remove
-import sys
-from gui.window import BackgroundRemover
 
-from PyQt6.QtWidgets import QApplication
-class BackgroundRemoverApp():
+class BackgroundRemover():
     def __init__(self,input_folder,output_folder):
         self.input_folder = input_folder
         self.output_folder = output_folder
@@ -36,9 +33,10 @@ class BackgroundRemoverApp():
         new_path = os.path.join(original_folder, filename)
         os.rename(input_p, new_path)
 
-
 if __name__ == '__main__':
-    app = QApplication(sys.argv)
-    mainWindow = BackgroundRemover()
-    mainWindow.show()
-    sys.exit(app.exec())
+
+    input_folder = "input_folder"
+    output_folder = "output_folder"
+
+    remover = BackgroundRemover(input_folder, output_folder)
+    remover.process_images()

@@ -13,3 +13,4 @@ pip-selfcheck.json
 
 venv/
 output_folder/
+gui/

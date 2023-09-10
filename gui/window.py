@@ -46,7 +46,9 @@ class BackgroundRemover(QMainWindow):
         if not self.input_folder or not self.output_folder:
             return
 
-        remover = BackgroundRemover(self.input_folder, self.output_folder)
-        remover.process_images()
+        remover = BackgroundRemover()  # Crear una instancia sin argumentos
+        remover.input_folder = self.input_folder  # Establecer la ruta de entrada
+        remover.output_folder = self.output_folder  # Establecer la ruta de salida
+        remover.processImages()
         self.label_input.setText("Seleccionar carpeta de entrada:")
         self.label_output.setText("Seleccionar carpeta de salida:")
